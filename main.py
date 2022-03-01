@@ -1,7 +1,7 @@
 import time
 from tinydb import TinyDB, Query
 
-with open('C:\\Users\\USER\\Desktop\\PROJECTS\\python\\python-1\\database\\tinydb\\db_location') as f:
+with open('./db_location') as f:
     location = f.read()
 
 data_base = TinyDB(location)
@@ -11,7 +11,10 @@ data_base = TinyDB(location)
 class TinyDatabase():
     def __init__(self):
         self.database = data_base
-        self.lookup = Query()        
+        self.lookup = Query() 
+        self.site_name
+        self.user_name
+        self.password       
 
 
     def insertContent(self):
