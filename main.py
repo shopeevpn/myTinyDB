@@ -17,7 +17,7 @@ class TinyDatabase():
         self.password       
 
 
-    def insertContent(self):
+    def insert_content(self):
         self.site_name = input("Sitename: ")
         self.user_name = input("Username: ")
         self.password = input("Password: ")
@@ -36,26 +36,26 @@ class TinyDatabase():
             time.sleep(0.5)
 
         
-    def searchContent(self):
+    def search_content(self):
         pass
 
-    def deleteContent(self):
+    def delete_content(self):
         pass
 
-    def showAllContent(self):
+    def show_all_content(self):
         print(self.database.all())    
 
 
 
 
-def inputContent():
+def input_content():
     ask = input("Multpile or Single input(m/s)\n : ")
     if(ask == "m"):
         ranger = int(input("How many: "))
         for x in range(ranger):
-            TinyDatabase().insertContent()
+            TinyDatabase().insert_content()
     else:
-        TinyDatabase().insertContent()
+        TinyDatabase().insert_content()
 
 
-inputContent()
+input_content()
