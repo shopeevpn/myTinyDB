@@ -1,7 +1,8 @@
 import time
-from tinydb import TinyDB, Query
 
-with open('C:\\Users\\USER\\Desktop\\PROJECTS\\python\\python-1\\database\\tinydb\\db_location') as f:
+from tinydb import Query, TinyDB
+
+with open('./db_location') as f:
     location = f.read()
 
 data_base = TinyDB(location)
@@ -26,31 +27,72 @@ class TinyDatabase():
         )
         for l in range(1):
             print()
-            print("*"*20)
+            print("*"*30)
+            print("Successfully added <",self.user_name,">, and <",self.site_name,"> ✔")
+            print("*"*30)
             time.sleep(0.5)
 
     def search_content(self):
-        
+        print("*"*35)
+        print("🔍Searches for Sites and related info")
+        print("*"*35)
         self.search_site = input("Enter sitename: ")
         print(self.database.search(self.lookup.Site == self.search_site))
 
     def delete_content(self):
         print("*"*30)
-        print("Deletes user and related info")
+        print("Deletes user and related info 💀")
         print("*"*30)
         self.delete_user = input("Enter username: ")
         self.database.remove(self.lookup.User == self.delete_user)
-        print("Deleted <",self.delete_user,">")   
+        print("Deleted <", self.delete_user, ">")
 
     def show_all_content(self):
         print(self.database.all())
 
+    def primitive_error_handler(self):
+        print("🤷 Unknown input‼\nStart Over?(y/n)")
+        self.start_over = input("~$ ")
+        if self.start_over == "y":
+            tinydb_intro()
+        else:
+            print("Exiting program")
+            SystemExit()
 
-def input_content():
+
+def add_content():
     ask = input("Multpile or Single input(m/s)\n~$ ")
     if(ask == "m"):
-        amount = int(input("How many: "))
+        amount = int(input("~$ How many: \n"))
         for x in range(amount):
             TinyDatabase().insert_content()
+            print()
     else:
         TinyDatabase().insert_content()
+        print()
+
+
+def tinydb_intro():
+    print("""
+***********************************************
+                           
+                  TinyDB🗃️ 
+➕ Add / 🔍 Search / ❌ Delete / 👀 Show-all 
+              (𝗮 / 𝘀 / 𝗱 / 𝘀𝗵)    
+                            
+***********************************************
+""")
+    intro_question = input("~$ ")
+    if intro_question == "a":
+        add_content()
+    elif intro_question == "s":
+        TinyDatabase().search_content()
+    elif intro_question == "d":
+        TinyDatabase().delete_content()
+    elif intro_question == "sh":
+        TinyDatabase().show_all_content()
+    else:
+        TinyDatabase().primitive_error_handler()
+
+
+tinydb_intro()
