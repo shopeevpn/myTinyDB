@@ -2,6 +2,12 @@
 
 > ***Simple database using the **tinyDB** module***
 
+***Install the tinydb module*** 
+
+```
+pip install tinydb
+```
+
 ### Commands
 1. Add >> **a**
 2. Search >> **s**
