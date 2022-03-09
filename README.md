@@ -2,11 +2,13 @@
 
 > ***Simple database using the **tinyDB** module***
 
+## Setup
 ***Install the tinydb module*** 
 
 ```
 pip install tinydb
 ```
+create file **db_location** containing the location to create the json file at the root of the *repo*
 
 ### Commands
 1. Add >> **a**
