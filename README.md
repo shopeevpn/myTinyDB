@@ -19,8 +19,8 @@ create file **db_location** containing the location to create the json file at t
 ## 1. Adding user and related content
 Sites are added without the extension
 **example:**
-    - github.com ❌
-    - github or Github ✔
+- github.com ❌
+- github or Github ✔
     
 Enter **a** to the prompt
 ```
@@ -100,7 +100,7 @@ Enter username: testUser
 ```
 
 ## 4.Show-all users and related information
-> Shows all the user
+Shows all the user
 Input `sh`
 ```
 ***********************************************
