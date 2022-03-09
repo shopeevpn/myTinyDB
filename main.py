@@ -27,22 +27,22 @@ class TinyDatabase():
         )
         for l in range(1):
             print()
-            print("*"*30)
+            print("*"*51)
             print("Successfully added <",self.user_name,">, and <",self.site_name,"> ✔")
-            print("*"*30)
+            print("*"*51)
             time.sleep(0.5)
 
     def search_content(self):
-        print("*"*35)
+        print("*"*40)
         print("🔍Searches for Sites and related info")
-        print("*"*35)
+        print("*"*40)
         self.search_site = input("Enter sitename: ")
         print(self.database.search(self.lookup.Site == self.search_site))
 
     def delete_content(self):
-        print("*"*30)
+        print("*"*37)
         print("Deletes user and related info 💀")
-        print("*"*30)
+        print("*"*37)
         self.delete_user = input("Enter username: ")
         self.database.remove(self.lookup.User == self.delete_user)
         print("Deleted <", self.delete_user, ">")
