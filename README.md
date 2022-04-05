@@ -3,9 +3,15 @@
 > ***Simple database using the **tinyDB** module***
 
 ## Setup
+
+***Clone the repo***
+```git
+git clone https://github.com/musaubrian/tinydb
+```
+
 ***Install the tinydb module*** 
 
-```
+```python
 pip install tinydb
 ```
 Add location of the database in the **db_location** file
