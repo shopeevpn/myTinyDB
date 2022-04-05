@@ -61,10 +61,10 @@ class TinyDatabase():
 
 
 def add_content():
-    ask = input("Multpile or Single input(m/s)\n~$ ")
+    select_input = input("Multpile or Single input(m/s)\n~$ ")
     if(ask == "m"):
-        amount = int(input("~$ How many: \n"))
-        for x in range(amount):
+        num_of_times = int(input("~$ How many: \n"))
+        for x in range(num_of_times):
             TinyDatabase().insert_content()
             print()
     else:
@@ -78,7 +78,7 @@ def tinydb_intro():
                            
                   TinyDB🗃️ 
 ➕ Add / 🔍 Search / ❌ Delete / 👀 Show-all 
-              (𝗮 / 𝘀 / 𝗱 / 𝘀𝗵)    
+              (a / s / d / sh)    
                             
 ***********************************************
 """)
