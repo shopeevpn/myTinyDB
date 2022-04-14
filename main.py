@@ -62,7 +62,7 @@ class TinyDatabase():
 
 def add_content():
     select_input = input("Multpile or Single input(m/s)\n~$ ")
-    if(ask == "m"):
+    if(select_input == "m"):
         num_of_times = int(input("~$ How many: \n"))
         for x in range(num_of_times):
             TinyDatabase().insert_content()
