@@ -82,6 +82,7 @@ def tinydb_intro():
                             
 ***********************************************
 """)
+    options = ["a", "s", "d", "sh"]
     intro_question = input("~$ ")
     if intro_question == "a":
         add_content()
@@ -91,7 +92,7 @@ def tinydb_intro():
         TinyDatabase().delete_content()
     elif intro_question == "sh":
         TinyDatabase().show_all_content()
-    else:
+    elif intro_question not in options:
         TinyDatabase().primitive_error_handler()
 
 
