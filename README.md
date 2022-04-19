@@ -5,13 +5,13 @@
 ## Setup
 
 ***Clone the repo***
-```git
+```
 git clone https://github.com/musaubrian/tinydb
 ```
 
 ***Install the tinydb module*** 
 
-```python
+```
 pip install tinydb
 ```
 Add location of the database in the **db_location** file
@@ -29,7 +29,7 @@ Sites are added without the extension
 - github or Github ✔
     
 Enter **a** to the prompt
-```
+``` 
 ***********************************************
 
                   TinyDB🗃️
@@ -43,7 +43,7 @@ Enter **a** to the prompt
 
 
 It will prompt you to select whether you want to insert **mutliple inputs`m`** or just a single **input `s`**
-```
+``` 
 ***********************************************
 
                   TinyDB🗃️
@@ -66,7 +66,7 @@ Input `s` into the prompt to enter search mode.
 
 
 Enter **sitename**
-```
+``` 
 ***********************************************
 
                   TinyDB🗃️
@@ -89,7 +89,7 @@ Enter **d** to enter delete mode
 
 Enter user to delete 
 
-```
+``` 
 ***********************************************
 
                   TinyDB🗃️
@@ -108,7 +108,7 @@ Enter username: testUser
 ## 4.Show-all users and related information
 Shows all the user
 Input `sh`
-```
+``` 
 ***********************************************
 
                   TinyDB🗃️
