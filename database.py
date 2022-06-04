@@ -1,8 +1,9 @@
 import time
+import os
 
 from tinydb import Query, TinyDB
 
-with open('./db_location') as f:
+with open('./db_loc') as f:
     location = f.read()
 
 data_base = TinyDB(location)
@@ -25,10 +26,10 @@ class TinyDatabase():
                 'Password': self.password
             }
         )
-        for l in range(1):
+        for _ in range(1):
             print()
             print("*"*51)
-            print("Successfully added <",self.user_name,">, and <",self.site_name,"> ✔")
+            print(f"Successfully added <{ self.user_name }> and <{ self.site_name }> ✔")
             print("*"*51)
             time.sleep(0.5)
 
@@ -45,7 +46,7 @@ class TinyDatabase():
         print("*"*37)
         self.delete_user = input("Enter username: ")
         self.database.remove(self.lookup.User == self.delete_user)
-        print("Deleted <", self.delete_user, ">")
+        print(f"Deleted <{ self.delete_user }>")
 
     def show_all_content(self):
         print(self.database.all())
@@ -54,6 +55,9 @@ class TinyDatabase():
         print("🤷 Unknown input‼\nStart Over?(y/n)")
         self.start_over = input("~$ ")
         if self.start_over == "y":
+            os.system('cls'
+             if os.name == 'nt'
+             else 'clear')
             tinydb_intro()
         else:
             print("Exiting program")
@@ -63,8 +67,8 @@ class TinyDatabase():
 def add_content():
     select_input = input("Multpile or Single input(m/s)\n~$ ")
     if(select_input == "m"):
-        num_of_times = int(input("~$ How many: \n"))
-        for x in range(num_of_times):
+        num_of_times = int(input("~$ How many:\n"))
+        for _ in range(num_of_times):
             TinyDatabase().insert_content()
             print()
     else:
@@ -96,4 +100,5 @@ def tinydb_intro():
         TinyDatabase().primitive_error_handler()
 
 
-tinydb_intro()
+def main():
+    tinydb_intro()
