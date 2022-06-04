@@ -1,2 +1,3 @@
-db_location
+/__pycache__
+db_loc
 /db
