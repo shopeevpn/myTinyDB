@@ -20,9 +20,7 @@ def password_generator():
     password_length = int(input("Length of password: "))
     password_amount = int(input("Number of passwords: "))
     sym = input("Would you like to use symbols?\n~# ")
-    print()
     lower = input("Would you like to use lowercase letters?\n~# ")
-    print()
     nums = input("Would you like to use numbers?\n~# ")
     print()
 

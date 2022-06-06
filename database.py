@@ -53,7 +53,7 @@ class TinyDatabase():
 
     def primitive_error_handler(self):
         print("🤷 Unknown input‼\nStart Over?(y/n)")
-        self.start_over = input("~$ ")
+        self.start_over = input("~# ")
         if self.start_over == "y":
             os.system('cls'
              if os.name == 'nt'
