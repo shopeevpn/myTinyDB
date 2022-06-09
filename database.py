@@ -81,11 +81,11 @@ def tinydb_intro():
                            
                   TinyDB🗃️ 
 ➕ Add / 🔍 Search / ❌ Delete / 👀 ow-all 
-              (a / s / d / sh / b)    
+              (a / s / d / sh)    
                             
 ***********************************************
 """)
-    options = ["a", "s", "d", "sh", "b"]
+    options = ["a", "s", "d", "sh"]
     intro_question = input("~# ")
     if intro_question == "a":
         add_content()

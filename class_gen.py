@@ -17,16 +17,6 @@ class PasswordGenerator():
         print()
 
     def start_join(self):
-        print("""
-****************************************
-
-           Password generator
-
-                yes: y
-                no: n
-
-****************************************
-    """)
         PasswordGenerator.take_input(self)
         if self.use_symbols == "y":
             self.empty_string += self.symbols
@@ -46,4 +36,4 @@ class PasswordGenerator():
             self.generated_password = "".join(random.sample(self.empty_string, self.password_length))
             print(f"~# {self.generated_password}")
 
-start_generator = PasswordGenerator()
+start_script = PasswordGenerator()
