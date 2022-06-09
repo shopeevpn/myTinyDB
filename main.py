@@ -1,4 +1,4 @@
-from generator import password_generator
+from generator import start_generator
 from database import launch_db
 import os
 import time
@@ -37,7 +37,7 @@ def select_module():
         launch_db()
     elif user_prompt == "gen":
         clear_console()
-        password_generator()
+        start_generator.start_join()
     elif user_prompt not in choices:
         handle_error()
 
