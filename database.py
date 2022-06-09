@@ -1,6 +1,5 @@
 import time
 import os
-
 from tinydb import Query, TinyDB
 
 with open('./db_loc') as f:
@@ -65,9 +64,9 @@ class TinyDatabase():
 
 
 def add_content():
-    select_input = input("Multpile or Single input(m/s)\n~$ ")
+    select_input = input("Multpile or Single input(m/s)\n~# ")
     if(select_input == "m"):
-        num_of_times = int(input("~$ How many:\n"))
+        num_of_times = int(input("~# How many:\n"))
         for _ in range(num_of_times):
             TinyDatabase().insert_content()
             print()
@@ -81,13 +80,13 @@ def tinydb_intro():
 ***********************************************
                            
                   TinyDB🗃️ 
-➕ Add / 🔍 Search / ❌ Delete / 👀 Show-all 
-              (a / s / d / sh)    
+➕ Add / 🔍 Search / ❌ Delete / 👀 ow-all 
+              (a / s / d / sh / b)    
                             
 ***********************************************
 """)
-    options = ["a", "s", "d", "sh"]
-    intro_question = input("~$ ")
+    options = ["a", "s", "d", "sh", "b"]
+    intro_question = input("~# ")
     if intro_question == "a":
         add_content()
     elif intro_question == "s":
@@ -100,5 +99,5 @@ def tinydb_intro():
         TinyDatabase().primitive_error_handler()
 
 
-def main():
+def launch_db():
     tinydb_intro()

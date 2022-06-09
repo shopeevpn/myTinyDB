@@ -1,5 +1,5 @@
 from generator import password_generator
-from database import main
+from database import launch_db
 import os
 import time
 
@@ -34,7 +34,7 @@ def select_module():
     user_prompt = input("\n~# ")
     if user_prompt == "db":
         clear_console()
-        main()
+        launch_db()
     elif user_prompt == "gen":
         clear_console()
         password_generator()
