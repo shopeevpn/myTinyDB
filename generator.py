@@ -1,5 +1,4 @@
 import random
-import time
 
 def password_generator():
     print("""
