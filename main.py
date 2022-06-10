@@ -1,5 +1,5 @@
-from generator import start_generator
-from database import launch_db
+from modules.generator import start_generator
+from modules.database import launch_db
 import os
 import time
 
