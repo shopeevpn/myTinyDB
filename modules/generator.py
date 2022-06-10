@@ -1,4 +1,5 @@
 import random
+import time
 
 class PasswordGenerator():
     def __init__(self) -> None:
@@ -44,11 +45,12 @@ class PasswordGenerator():
         print("\n","*"*len(self.upper),"\n")
         self.ask_write = input("Write generated passwords to file?\n~# ")
         if self.ask_write == "y":
-            with open("passwords_list.txt", "w") as f:
+            with open("_passwords.txt", "w") as f:
                 for _ in range(self.password_amount):
                     self.generated_password = "".join(random.sample(self.empty_string, self.password_length))
                     f.write(f"{self.generated_password}\n")
-            print("Passwords written to {passwords_list.txt}")
+            print("Passwords written to {_passwords.txt}")
+            time.sleep(2)
         else:
             print("\n","*"*len(self.upper),"\n")
             for _ in range(self.password_amount):
