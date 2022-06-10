@@ -1,4 +1,9 @@
 /modules/__pycache__
 /__pycache__
 db_loc
+<<<<<<< HEAD
 /db
+=======
+/db
+*.txt
+>>>>>>> d472dadcfd27cce5a4b0a6d94ac41fdb7fee6065
