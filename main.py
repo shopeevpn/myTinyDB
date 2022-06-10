@@ -1,5 +1,10 @@
+<<<<<<< HEAD
+from modules.generator import start_generator
+from modules.database import launch_db
+=======
 from generator import start_generator
 from database import launch_db
+>>>>>>> d472dadcfd27cce5a4b0a6d94ac41fdb7fee6065
 import os
 import time
 
