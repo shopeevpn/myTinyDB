@@ -100,8 +100,4 @@ def tinydb_intro():
 
 
 def launch_db():
-<<<<<<< HEAD:modules/database.py
     tinydb_intro()
-=======
-    tinydb_intro()
->>>>>>> d472dadcfd27cce5a4b0a6d94ac41fdb7fee6065:database.py
