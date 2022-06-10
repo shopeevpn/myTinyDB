@@ -80,7 +80,7 @@ def tinydb_intro():
 ***********************************************
                            
                   TinyDB🗃️ 
-➕ Add / 🔍 Search / ❌ Delete / 👀 ow-all 
+➕ Add / 🔍 Search / ❌ Delete / 👀 Show-all 
               (a / s / d / sh)    
                             
 ***********************************************
