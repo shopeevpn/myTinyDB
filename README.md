@@ -1,18 +1,22 @@
 # TinyDB 🗃️
 
-> ***Simple database using the **tinyDB** module***
+> ***Simple password generator and database that uses the **tinyDB** module***
 
 ## Setup
 
 ***Clone the repo***
-```
+```sh
 git clone https://github.com/musaubrian/tinydb
 ```
 
 ***Install the tinydb module*** 
 
-```
-pip install tinydb
+```sh
+windows
+pip install -r requirements.txt
+
+linux
+pip3 install -r requirements.txt
 ```
 Add location of the database in the **db_location** file
 
