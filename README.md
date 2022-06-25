@@ -121,7 +121,7 @@ Enter sitename: example
 
 ```
 
-## 3. Delete user and related content
+### 3. Delete user and related content
 
 Enter **d** to enter delete mode
 
