@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-
+"""calls the required modules"""
 from modules.generator import start_generator
 from modules.database import launch_db
 import os
@@ -8,10 +8,12 @@ import time
 
 
 def clear_console():
+    """clears the terminal if user """
     subprocess.run("cls" if os.name == "nt" else "clear")
-    #os.system("cls" if os.name == "nt" else "clear")
+
 
 def handle_error():
+    """clears console and prompts user again"""
     print("\n🤷 Unknown input‼\nStart Over?(y/n)")
     restart = input("~# ")
     if restart == "y":
@@ -23,17 +25,18 @@ def handle_error():
         clear_console()
         SystemExit()
 
+
 def select_module():
+    """Prompts user to select the module they want to use"""
     print("""
 ****************************************
-     
-        What shall it be today?
 
+        what shall it be today?
             database: db
         password generator: gen
 
-****************************************        
-    """)
+****************************************
+""")
 
     choices = ["db", "gen"]
     user_prompt = input("\n~# ")
@@ -46,5 +49,7 @@ def select_module():
     elif user_prompt not in choices:
         handle_error()
 
+
 if __name__ == '__main__':
+
     select_module()
