@@ -1,8 +1,9 @@
 import time
 import os
+import subprocess
 from tinydb import Query, TinyDB
 
-with open('./db_loc') as f:
+with open('./db_location') as f:
     location = f.read()
 
 data_base = TinyDB(location)
@@ -54,9 +55,7 @@ class TinyDatabase():
         print("🤷 Unknown input‼\nStart Over?(y/n)")
         self.start_over = input("~# ")
         if self.start_over == "y":
-            os.system('cls'
-             if os.name == 'nt'
-             else 'clear')
+            subprocess.run("cls" if os.name == "nt" else "clear")
             tinydb_intro()
         else:
             print("Exiting program")

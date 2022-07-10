@@ -3,10 +3,13 @@
 from modules.generator import start_generator
 from modules.database import launch_db
 import os
+import subprocess
 import time
 
+
 def clear_console():
-    os.system("cls" if os.name == "nt" else "clear")
+    subprocess.run("cls" if os.name == "nt" else "clear")
+    #os.system("cls" if os.name == "nt" else "clear")
 
 def handle_error():
     print("\n🤷 Unknown input‼\nStart Over?(y/n)")
