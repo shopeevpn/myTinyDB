@@ -1,8 +1,14 @@
+#!/usr/bin/python3
+"""module generates random passwords"""
 import random
 import time
 
 class PasswordGenerator():
+    """
+    defines PasswordGenerator 
+    """
     def __init__(self) -> None:
+        """initialize the generator"""
         self.upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         self.lower = self.upper.lower()
         self.digits = "0123456789"
@@ -10,13 +16,14 @@ class PasswordGenerator():
         self.empty_string = "" + self.upper
     
     def take_input(self):
+        """take user input"""
         self.password_length = int(input("Length of password: "))
         self.password_amount = int(input("Number of passwords: "))
         if not isinstance(self.password_length, int):
             raise TypeError(f"{self.password_length} has to be an integer")
         elif not isinstance(self.password_amount, int):
             raise TypeError(f"{self.password_amount} has to be an integer")
-        elif self.password_amount or self.password_length < 0:
+        elif self.password_amount < 0 or self.password_length < 0:
             raise ValueError("Input needs to be >= 0")
         self.use_symbols = input("Would you like to use symbols?\n~# ")
         self.use_lower = input("Would you like to use lowercase letters?\n~# ")
@@ -24,6 +31,7 @@ class PasswordGenerator():
         print()
 
     def start_join(self):
+        """generates random vlues and joins them"""
         print("""
 ****************************************
 

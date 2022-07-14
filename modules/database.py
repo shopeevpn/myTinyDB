@@ -4,12 +4,14 @@ import time
 import os
 import subprocess
 from tinydb import Query, TinyDB
+from modules.handle_files import to_dir_path
 
 
-with open('./db_location') as f:
+with open('./.db_location') as f:
     location = f.read()
 
-data_base = TinyDB(location)
+full_path = os.path.join(to_dir_path, location)
+data_base = TinyDB(full_path)
 
 
 class TinyDatabase():

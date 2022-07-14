@@ -1,14 +1,16 @@
 #!/usr/bin/env python3
 """calls the required modules"""
+from pathlib import Path
 from modules.generator import start_generator
-from modules.database import launch_db
+from modules.database import launch_db, full_path
+from modules.handle_files import create_dir
 import os
 import subprocess
 import time
 
 
 def clear_console():
-    """clears the terminal if user """
+    """clears the terminal"""
     subprocess.run("cls" if os.name == "nt" else "clear")
 
 
@@ -42,7 +44,10 @@ def select_module():
     user_prompt = input("\n~# ")
     if user_prompt == "db":
         clear_console()
-        launch_db()
+        if Path(full_path).is_file():
+            launch_db()
+        else:
+            create_dir()
     elif user_prompt == "gen":
         clear_console()
         start_generator.start_join()
