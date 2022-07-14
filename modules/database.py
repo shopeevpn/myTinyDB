@@ -4,14 +4,9 @@ import time
 import os
 import subprocess
 from tinydb import Query, TinyDB
-from modules.create_dir import CreateDir
 
-<<<<<<< HEAD
-path_to_file = CreateDir.change_to_home_dir
-with open() as f:
-=======
+
 with open('./db_location') as f:
->>>>>>> f29c615c99a0508a87afae076383daa585f8d95d
     location = f.read()
 
 data_base = TinyDB(location)
