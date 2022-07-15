@@ -23,13 +23,3 @@ def create_dir():
     """
     change_to_home()
     os.mkdir(dir_name)
-
-def delete_setup():
-    """
-    removes the setup script
-    """
-    subprocess.run(
-            ["del", "testfile.py"]
-            if os.name == "nt"
-            else ["rm", "testfile.py"]
-            )
