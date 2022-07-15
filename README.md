@@ -6,27 +6,47 @@
 
 **Clone the repo**
 ```
-git clone https://github.com/musaubrian/myTinyDB
+git clone https://github.com/musaubrian/myTinyDB tiny_db
+```
+```sh
+cd tiny_db
+```
+run **set-up.py**
+
+***linux***
+```sh
+./set-up.py
+Collecting tinydb==4.5.2
+  Downloading tinydb-4.5.2-py3-none-any.whl (23 kB)
+Installing collected packages: tinydb
+Successfully installed tinydb-4.5.2
+=================
+Everything is set
 ```
 
-**Install the tinydb module**
-
+***windows***
+-------------
 ```
-windows
-pip install -r requirements.txt
-
-linux
-pip3 install -r requirements.txt
+set-up.py
+Collecting tinydb==4.5.2
+  Downloading tinydb-4.5.2-py3-none-any.whl (23 kB)
+Installing collected packages: tinydb
+Successfully installed tinydb-4.5.2
+=================
+Everything is set
 ```
-Add location of the database in the **db_loc** file
 
+### Run the script:
 
-> **Run the script:** 
-```
-linux
+***linux***
+```sh
 python3 main.py
+or
+./main.py
+```
 
-windows
+***windows***
+```
 main.py
 ```
 
@@ -50,11 +70,6 @@ Would you like to use lowercase letters?
 Would you like to use numbers?
 ~# y
 
-
- **************************
-
-Write generated passwords to file?
-~#
 ```
 > you can display generated passwords to the screen or save in a file
 
