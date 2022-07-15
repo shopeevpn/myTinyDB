@@ -3,7 +3,7 @@
 from pathlib import Path
 from modules.generator import start_generator
 from modules.database import launch_db, full_path
-from modules.handle_files import create_dir
+from modules.handle_files import create_dir, delete_setup
 import os
 import subprocess
 import time
@@ -44,6 +44,7 @@ def select_module():
     user_prompt = input("\n~# ")
     if user_prompt == "db":
         clear_console()
+        delete_setup()
         if Path(full_path).is_file():
             launch_db()
         else:
