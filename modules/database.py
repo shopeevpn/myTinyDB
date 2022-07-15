@@ -107,6 +107,7 @@ def tinydb_intro():
                     TinyDB🗃️
 ➕ Add / 🔍 Search / ❌ Delete / 👀 Show-all
                 (a / s / d / sh)
+
 **********************************************
 """)
     options = ["a", "s", "d", "sh"]

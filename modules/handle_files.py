@@ -14,6 +14,7 @@ def change_to_home():
     """changes directory to the system's home path"""
     os.chdir(home_path)
 
+
 def create_dir():
     """
     calls change_to_home function
