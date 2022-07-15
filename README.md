@@ -25,7 +25,7 @@ Everything is set
 ```
 
 ***windows***
--------------
+
 ```
 set-up.py
 Collecting tinydb==4.5.2
@@ -36,6 +36,7 @@ Successfully installed tinydb-4.5.2
 Everything is set
 ```
 
+------------------
 ### Run the script:
 
 ***linux***
