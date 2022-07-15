@@ -6,7 +6,7 @@
 
 **Clone the repo**
 ```
-git clone https://github.com/musaubrian/tinydb
+git clone https://github.com/musaubrian/myTinyDB
 ```
 
 **Install the tinydb module**
