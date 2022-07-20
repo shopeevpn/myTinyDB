@@ -72,7 +72,7 @@ Would you like to use numbers?
 ~# y
 
 ```
-> you can display generated passwords to the screen or save in a file
+
 
 ## b) Database
 
@@ -114,7 +114,8 @@ Multpile or Single input(m/s)
 It exits automatically
 
 ### 2. Searching for user and related information
-> Currently ony searches by *site name*
+
+***Currently ony searches by site name***
 
 Input `s` into the prompt to enter search mode.
 
@@ -159,7 +160,7 @@ Deletes user and related info 💀
 Enter username: testUser
 ```
 
-### 4.Show-all users and related information
+### 4. Show-all users and related information
 Shows all the user
 Input `sh`
 ``` 
