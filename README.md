@@ -24,31 +24,12 @@ Successfully installed tinydb-4.5.2
 Everything is set
 ```
 
-***windows***
-
-```
-set-up.py
-Collecting tinydb==4.5.2
-  Downloading tinydb-4.5.2-py3-none-any.whl (23 kB)
-Installing collected packages: tinydb
-Successfully installed tinydb-4.5.2
-=================
-Everything is set
-```
-
 ------------------
 ### Run the script:
 
 ***linux***
 ```sh
-python3 main.py
-or
-./main.py
-```
-
-***windows***
-```
-main.py
+./main
 ```
 
 ## a) Password Generator
