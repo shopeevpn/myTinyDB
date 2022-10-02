@@ -7,18 +7,20 @@ import os
 import subprocess
 from modules.handle_files import create_dir
 
-package_name = "tinydb==4.5.2"
+
+packages = ["tinydb==4.5.2", "pyperclip"]
 
 
-def prepare_env(package):
+def prepare_env(packages: list):
     """
     sets up everything for the user
     """
     create_dir()
-    subprocess.run(
-            ["pip", "install", package]
-            if os.name == "nt"
-            else ["pip3", "install", package]
+    for package in packages:
+        subprocess.run(
+                ["pip", "install", package]
+                if os.name == "nt"
+                else ["pip3", "install", package]
             )
     print("="*17)
     print("Everything is set")
@@ -26,4 +28,4 @@ def prepare_env(package):
 
 if __name__ == "__main__":
 
-    prepare_env(package_name)
+    prepare_env(packages)
