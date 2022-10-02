@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """module generates random passwords"""
 import random
-import time
+import pyperclip
 
 
 class PasswordGenerator():
@@ -16,53 +16,24 @@ class PasswordGenerator():
         self.symbols = "*&%$#@!+~:-<|?/ >"
         self.empty_string = "" + self.upper
 
-    def take_input(self):
-        """take user input"""
-        self.password_length = int(input("Length of password: "))
-        self.password_amount = int(input("Number of passwords: "))
-        if not isinstance(self.password_length, int):
-            raise TypeError(f"{self.password_length} has to be an integer")
-        elif not isinstance(self.password_amount, int):
-            raise TypeError(f"{self.password_amount} has to be an integer")
-        elif self.password_amount < 0 or self.password_length < 0:
-            raise ValueError("Input needs to be >= 0")
-        self.use_symbols = input("Would you like to use symbols?\n~# ")
-        self.use_lower = input("Would you like to use lowercase letters?\n~# ")
-        self.use_digits = input("Would you like to use numbers?\n~# ")
-        print()
-
     def start_join(self):
-        """generates random vlues and joins them"""
-        print("""
-****************************************
+        """
+        generates random values and joins them
+        """
 
-           Password generator
+        self.empty_string += self.digits
+        self.empty_string += self.lower
+        self.empty_string += self.symbols
+        self.password_length = 15
 
-                yes: y
-                no: n
-
-****************************************
-    """)
-        PasswordGenerator.take_input(self)
-        if self.use_symbols == "y":
-            self.empty_string += self.symbols
-        else:
-            pass
-        if self.use_digits == "y":
-            self.empty_string += self.digits
-        else:
-            pass
-        if self.use_lower == "y":
-            self.empty_string += self.lower
-        else:
-            self.empty_string
-
-        print("\n", "*"*len(self.upper), "\n")
-        for _ in range(self.password_amount):
-            self.generated_password = "".join(random.sample(
-                self.empty_string, self.password_length
-                ))
-            print(f"~# {self.generated_password}")
+        self.generated_password = "".join(random.sample(
+            self.empty_string, self.password_length
+            ))
+        print()
+        print("password copied to clipboard")
+        print("*"*28)
+        print()
+        pyperclip.copy(self.generated_password)
 
 
 start_generator = PasswordGenerator()
