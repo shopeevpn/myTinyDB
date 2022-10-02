@@ -17,7 +17,7 @@ def prepare_env(packages: list):
     """
     create_dir()
     for package in packages:
-        subprocess.run(
+        subprocess.check_call(
                 ["pip", "install", package]
                 if os.name == "nt"
                 else ["pip3", "install", package]
