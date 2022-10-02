@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """module generates random passwords"""
 import random
+import pyperclip
 
 
 class PasswordGenerator():
@@ -16,14 +17,9 @@ class PasswordGenerator():
         self.empty_string = "" + self.upper
 
     def start_join(self):
-        """generates random vlues and joins them"""
-        print("""
-***********************************
-
-        Password generator 
-
-***********************************
-    """)
+        """
+        generates random values and joins them
+        """
 
         self.empty_string += self.digits
         self.empty_string += self.lower
@@ -33,7 +29,11 @@ class PasswordGenerator():
         self.generated_password = "".join(random.sample(
             self.empty_string, self.password_length
             ))
-        print(f"~# {self.generated_password}")
+        print()
+        print("password copied to clipboard")
+        print("*"*28)
+        print()
+        pyperclip.copy(self.generated_password)
 
 
 start_generator = PasswordGenerator()
