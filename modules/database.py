@@ -24,7 +24,8 @@ class TinyDatabase():
     def insert_content(self):
         """
         insert content to the database
-        site_name, user_name, password"""
+        site_name, user_name, password
+        """
         self.site_name = input("Sitename: ")
         self.user_name = input("Username: ")
         self.password = input("Password: ")
@@ -54,21 +55,10 @@ class TinyDatabase():
         print("🔍Searches for Sites and related info")
         print("*"*40)
         self.search_site = input("Enter sitename: ")
-        self.json_content = json.loads(
-                    self.database.search(
-                        self.lookup.Site == self.search_site
-                        )
-                    )
-        self.prettified_json = json.dumps(
-                self.json_content,
-                indent=2
+        self.json_content = self.database.search(
+                self.lookup.Site == self.search_site
                 )
-
-#        self.json_content = (self.database.search
- #               (self.lookup.Site == self.search_site)
-  #              )
-   #     self.json_to_be_prettified = json.loads(self.json_content)
-
+        TinyDatabase.pretty_print_json(self.json_content)
 
     def delete_content(self):
         """
@@ -84,7 +74,18 @@ class TinyDatabase():
 
     def show_all_content(self):
         """prints all the contents of the file to stdout"""
-        print(self.database.all())
+        TinyDatabase.pretty_print_json(
+                self.database.all()
+                )
+
+    def pretty_print_json(normal_json):
+        prettified_json = normal_json
+
+        prettified_json = json.dumps(
+                prettified_json,
+                indent=4,
+                )
+        print(prettified_json)
 
     def primitive_error_handler(self):
         """option to restart process when input is not valid"""
