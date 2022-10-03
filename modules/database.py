@@ -2,6 +2,7 @@
 """class TinyDatabase defines a database"""
 import time
 import os
+import json
 import subprocess
 from tinydb import Query, TinyDB
 from modules.handle_files import to_dir_path
@@ -53,7 +54,21 @@ class TinyDatabase():
         print("🔍Searches for Sites and related info")
         print("*"*40)
         self.search_site = input("Enter sitename: ")
-        print(self.database.search(self.lookup.Site == self.search_site))
+        self.json_content = json.loads(
+                    self.database.search(
+                        self.lookup.Site == self.search_site
+                        )
+                    )
+        self.prettified_json = json.dumps(
+                self.json_content,
+                indent=2
+                )
+
+#        self.json_content = (self.database.search
+ #               (self.lookup.Site == self.search_site)
+  #              )
+   #     self.json_to_be_prettified = json.loads(self.json_content)
+
 
     def delete_content(self):
         """
