@@ -2,6 +2,7 @@
 """
 Module creates a directory in the systems home directory,
 """
+from crypt import crypt
 import os
 from pathlib import Path
 from cryptography import fernet as fnt
@@ -26,17 +27,25 @@ def create_dir():
     os.mkdir(dir_name)
 
 
-def encrypt_file(db_path: str):
+def generate_key():
+    """
+    generates the key to be used to encrypt files
+    """
+    crypt_key = fnt.Fernet.generate_key()
+    with open(to_key, 'wb') as f_key:
+        f_key.write(crypt_key)
+
+
+def encrypt_file(db_path: str, key_path: str):
     """
     encrypts the password file
 
     Args::
         db_path: path to the file
+        key_path: path to the generated key
     """
-    crypt_key = fnt.Fernet.generate_key()
-
-    with open(to_key, 'wb') as f_key:
-        f_key.write(crypt_key)
+    with open(key_path, 'rb') as key:
+        crypt_key = key.read()
 
     fernet = fnt.Fernet(crypt_key)
 
@@ -55,12 +64,12 @@ def decrypt_file(db_path: str, key_path: str):
     Args::
         db_path: path to the file location
         key_path: path to the generated key
-        
+
     """
     with open(key_path, 'rb') as file:
         decrypt_key = file.read()
     crypt = fnt.Fernet(decrypt_key)
-    
+
     with open(db_path, 'rb') as file:
         encrypted_file = file.read()
 
