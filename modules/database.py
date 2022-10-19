@@ -79,6 +79,9 @@ class TinyDatabase():
                 )
 
     def pretty_print_json(normal_json):
+        """
+        returns a prettified json object
+        """
         prettified_json = normal_json
 
         prettified_json = json.dumps(
