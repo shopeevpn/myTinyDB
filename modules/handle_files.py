@@ -44,17 +44,22 @@ def encrypt_file(db_path: str, key_path: str):
         db_path: path to the file
         key_path: path to the generated key
     """
-    with open(key_path, 'rb') as key:
-        crypt_key = key.read()
 
-    fernet = fnt.Fernet(crypt_key)
+    if os.stat(db_path).st_size == 0:
+        print("File is empty skipping encryption") 
+    else:
+        with open(key_path, 'rb') as key:
+            crypt_key = key.read()
 
-    with open(db_path, 'rb') as db_file:
-        original_file = db_file.read()
+        fernet = fnt.Fernet(crypt_key)
 
-    encrypted_file = fernet.encrypt(original_file)
-    with open(db_path, 'wb') as file:
-        file.write(encrypted_file)
+        with open(db_path, 'rb') as db_file:
+            original_file = db_file.read()
+
+        encrypted_file = fernet.encrypt(original_file)
+
+        with open(db_path, 'wb') as file:
+            file.write(encrypted_file)
 
 
 def decrypt_file(db_path: str, key_path: str):
@@ -68,11 +73,15 @@ def decrypt_file(db_path: str, key_path: str):
     """
     with open(key_path, 'rb') as file:
         decrypt_key = file.read()
-    crypt = fnt.Fernet(decrypt_key)
+    
+    fer = fnt.Fernet(decrypt_key)
+    
+    if os.stat(db_path).st_size == 0:
+        print("File empty skipping decryption")
+    else:
+        with open(db_path, 'rb') as file:
+            encrypted_file = file.read()
 
-    with open(db_path, 'rb') as file:
-        encrypted_file = file.read()
-
-    dec_content = crypt.decrypt(encrypted_file)
-    with open(db_path, 'wb') as dec_file:
-        dec_file.write(dec_content)
+        dec_content = fer.decrypt(encrypted_file)
+        with open(db_path, 'wb') as dec_file:
+            dec_file.write(dec_content)

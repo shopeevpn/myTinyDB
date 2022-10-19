@@ -5,7 +5,7 @@ import os
 import json
 import subprocess
 from tinydb import Query, TinyDB
-from modules.handle_files import to_dir_path
+from modules.handle_files import decrypt_file, encrypt_file, to_dir_path, to_key
 
 
 with open('./.db_location') as f:
@@ -45,6 +45,7 @@ class TinyDatabase():
                 f" and <{ self.site_name }> ✔"
                 )
             print("*"*51)
+            encrypt_file(db_path=full_path, key_path=to_key)
             time.sleep(0.5)
 
     def search_content(self):
@@ -54,11 +55,13 @@ class TinyDatabase():
         print("*"*40)
         print("🔍Searches for Sites and related info")
         print("*"*40)
+#        decrypt_file(db_path=full_path, key_path=to_key)
         self.search_site = input("Enter sitename: ")
         self.json_content = self.database.search(
                 self.lookup.Site == self.search_site
                 )
         TinyDatabase.pretty_print_json(self.json_content)
+        encrypt_file(db_path=full_path, key_path=to_key)
 
     def delete_content(self):
         """
@@ -71,12 +74,14 @@ class TinyDatabase():
         self.delete_user = input("Enter username: ")
         self.database.remove(self.lookup.User == self.delete_user)
         print(f"Deleted <{ self.delete_user }>")
+        encrypt_file(db_path=full_path, key_path=to_key)
 
     def show_all_content(self):
         """prints all the contents of the file to stdout"""
         TinyDatabase.pretty_print_json(
                 self.database.all()
                 )
+        encrypt_file(db_path=full_path, key_path=to_key)
 
     def pretty_print_json(normal_json):
         """
@@ -107,15 +112,18 @@ def add_content():
     add content in single(once)
     or multiple(several users information in order)
     """
+#    decrypt_file(db_path=full_path, key_path=to_key)
     select_input = input("Multpile or Single input(m/s)\n~# ")
     if (select_input == "m"):
         num_of_times = int(input("~# How many:\n"))
         for _ in range(num_of_times):
             TinyDatabase().insert_content()
             print()
+        encrypt_file(db_path=full_path, key_path=to_key)
     else:
         TinyDatabase().insert_content()
         print()
+    encrypt_file(db_path=full_path, key_path=to_key)
 
 
 def tinydb_intro():
@@ -129,6 +137,8 @@ def tinydb_intro():
 
 **********************************************
 """)
+
+    decrypt_file(db_path=full_path, key_path=to_key)
     options = ["a", "s", "d", "sh"]
     intro_question = input("~# ")
     if intro_question == "a":
