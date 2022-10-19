@@ -1,19 +1,23 @@
 # MyTinyDB 🗃️
 
-> ***Simple password generator and database that uses the **tinyDB** module***
+> **\*Simple password generator and database that uses the **tinyDB** module\***
 
 ## Setup
 
 **Clone the repo**
+
 ```
 git clone https://github.com/musaubrian/myTinyDB tiny_db
 ```
+
 ```sh
 cd tiny_db
 ```
+
 run **set-up.py**
 
-***linux***
+**_linux_**
+
 ```sh
 ./set-up.py
 Collecting tinydb==4.5.2
@@ -24,47 +28,51 @@ Successfully installed tinydb-4.5.2
 Everything is set
 ```
 
-------------------
+---
+
 ### Run the script:
 
-***linux***
+**_linux_**
+
 ```sh
-./main
+./main.py
 ```
 
 ## a) Password Generator
+
+Clears the screen and saves the password to the clipboard
+
 ```sh
 ****************************************
 
-           Password generator
-
-                yes: y
-                no: n
+        what shall it be today?
+            database: db
+        password generator: gen
 
 ****************************************
 
-Length of password: 10
-Number of passwords: 3
-Would you like to use symbols?
-~# y
-Would you like to use lowercase letters?
-~# y
-Would you like to use numbers?
-~# y
+
+~# gen
+
+
+password copied to clipboard
+****************************
 
 ```
-
 
 ## b) Database
 
 ### 1. Adding user and related content
-Sites are added without the extension
+
+Sites are added without the extension for easier searching
 **example:**
+
 - github.com ❌
 - github or Github ✔
-    
+
 Enter **a** to the prompt
-``` 
+
+```
 ***********************************************
 
                   TinyDB🗃️
@@ -76,9 +84,10 @@ Enter **a** to the prompt
 ~$ a
 ```
 
+It will prompt you to select
+whether you want to insert **mutliple inputs`m`** or just a single **input `s`**
 
-It will prompt you to select whether you want to insert **mutliple inputs`m`** or just a single **input `s`**
-``` 
+```
 ***********************************************
 
                   TinyDB🗃️
@@ -96,13 +105,13 @@ It exits automatically
 
 ### 2. Searching for user and related information
 
-***Currently ony searches by site name***
+**_Currently only searches by site name_**
 
 Input `s` into the prompt to enter search mode.
 
-
 Enter **sitename**
-``` 
+
+```
 ***********************************************
 
                   TinyDB🗃️
@@ -123,9 +132,9 @@ Enter sitename: example
 
 Enter **d** to enter delete mode
 
-Enter user to delete 
+Enter user to delete
 
-``` 
+```
 ***********************************************
 
                   TinyDB🗃️
@@ -142,9 +151,11 @@ Enter username: testUser
 ```
 
 ### 4. Show-all users and related information
+
 Shows all the user
 Input `sh`
-``` 
+
+```
 ***********************************************
 
                   TinyDB🗃️
