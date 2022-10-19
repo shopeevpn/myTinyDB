@@ -25,27 +25,45 @@ def create_dir():
     change_to_home()
     os.mkdir(dir_name)
 
-def enrcypt_db(db):
-    print(db)
-    def encrypt_file(db):
-        crypt_key = fnt.Fernet.generate_key()
+
+def encrypt_file(db_path: str):
+    """
+    encrypts the password file
+
+    Args::
+        db_path: path to the file
+    """
+    crypt_key = fnt.Fernet.generate_key()
+
+    with open(to_key, 'wb') as f_key:
+        f_key.write(crypt_key)
+
+    fernet = fnt.Fernet(crypt_key)
+
+    with open(db_path, 'rb') as db_file:
+        original_file = db_file.read()
+
+    encrypted_file = fernet.encrypt(original_file)
+    with open(db_path, 'wb') as file:
+        file.write(encrypted_file)
+
+
+def decrypt_file(db_path: str, key_path: str):
+    """
+    decrypts the passwords file
+
+    Args::
+        db_path: path to the file location
+        key_path: path to the generated key
         
-        with open(to_key, 'wb') as f_key:
-            f_key.write(crypt_key)
+    """
+    with open(key_path, 'rb') as file:
+        decrypt_key = file.read()
+    crypt = fnt.Fernet(decrypt_key)
+    
+    with open(db_path, 'rb') as file:
+        encrypted_file = file.read()
 
-        fernet = fnt.Fernet(crypt_key)
-
-        with open(db, 'rb') as db_file:
-            original_file = db_file.read()
-
-        encrypted_file = fernet.encrypt(original_file)
-
-        with open(db, 'wb') as file:
-            file.write(encrypted_file)
-
-        return fernet
-
-    def decrypt_file(encrypted_file, crypt, key):
-        dec_content = crypt.decrypt(encrypted_file)
-        with open(db, 'wb') as dec_file:
-            dec_file.write(dec_content)
+    dec_content = crypt.decrypt(encrypted_file)
+    with open(db_path, 'wb') as dec_file:
+        dec_file.write(dec_content)
