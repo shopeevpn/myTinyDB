@@ -2,7 +2,7 @@
 """
 Module creates a directory in the systems home directory,
 """
-from crypt import crypt
+
 import os
 from pathlib import Path
 from cryptography import fernet as fnt
