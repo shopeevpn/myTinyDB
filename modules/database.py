@@ -5,7 +5,9 @@ import os
 import json
 import subprocess
 from tinydb import Query, TinyDB
-from modules.handle_files import decrypt_file, encrypt_file, to_dir_path, to_key
+from modules.handle_files import (
+        decrypt_file, encrypt_file, to_dir_path, to_key
+        )
 
 
 with open('./.db_location') as f:

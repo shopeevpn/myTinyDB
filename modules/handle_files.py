@@ -4,8 +4,8 @@ Module creates a directory in the systems home directory,
 """
 
 import os
-from pathlib import Path
 from cryptography import fernet as fnt
+from pathlib import Path
 
 home_path = Path.home()
 dir_name = ".mydb"
@@ -46,7 +46,7 @@ def encrypt_file(db_path: str, key_path: str):
     """
 
     if os.stat(db_path).st_size == 0:
-        print("File is empty skipping encryption") 
+        print("File is empty skipping encryption")
     else:
         with open(key_path, 'rb') as key:
             crypt_key = key.read()
@@ -73,9 +73,9 @@ def decrypt_file(db_path: str, key_path: str):
     """
     with open(key_path, 'rb') as file:
         decrypt_key = file.read()
-    
+
     fer = fnt.Fernet(decrypt_key)
-    
+
     if os.stat(db_path).st_size == 0:
         print("File empty skipping decryption")
     else:
