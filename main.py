@@ -3,7 +3,7 @@
 from pathlib import Path
 from modules.generator import start_generator
 from modules.database import launch_db, full_path
-from modules.handle_files import create_dir
+from modules.handle_files import create_dir, decrypt_file, to_key
 import os
 import subprocess
 import time
@@ -30,6 +30,7 @@ def handle_error():
 
 def select_module():
     """Prompts user to select the module they want to use"""
+    decrypt_file(db_path=full_path, key_path=to_key)
     print("""
 ****************************************
 
