@@ -25,7 +25,7 @@ def create_dir():
     """
     change_to_home()
     os.mkdir(dir_name)
-
+    
 
 def generate_key():
     """

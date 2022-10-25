@@ -23,6 +23,15 @@ class TinyDatabase():
         self.database = data_base
         self.lookup = Query()
 
+    def insert_dummy_content(self):
+        """
+        inserts dummy content to enable encryption
+        """
+        self.database.insert({
+            "User": "tinydb"
+        })
+        encrypt_file(db_path=full_path, key_path=to_key)
+
     def insert_content(self):
         """
         insert content to the database
@@ -115,7 +124,6 @@ def add_content():
     add content in single(once)
     or multiple(several users information in order)
     """
-
     select_input = input("Multpile or Single input(m/s)\n~# ")
     if (select_input == "m"):
         num_of_times = int(input("~# How many:\n"))
@@ -128,18 +136,10 @@ def add_content():
         print()
 
 
-def tinydb_intro():
-    """welcome the user & propmt for input"""
-    print("""
-**********************************************
-
-                    TinyDB🗃️
-➕ Add / 🔍 Search / ❌ Delete / 👀 Show-all
-                (a / s / d / sh)
-
-**********************************************
-""")
-
+def get_input():
+    """
+    prompts user for inputs then calls relevant functions
+    """
     options = ["a", "s", "d", "sh"]
     intro_question = input("~# ")
     if intro_question == "a":
@@ -154,5 +154,29 @@ def tinydb_intro():
         TinyDatabase().primitive_error_handler()
 
 
+def tinydb_intro():
+    """welcome the user & propmt for input"""
+    print("""
+**********************************************
+
+                    TinyDB🗃️
+➕ Add / 🔍 Search / ❌ Delete / 👀 Show-all
+                (a / s / d / sh)
+
+**********************************************
+""")
+
+    get_input()
+
+
+def initiate_dummy_content():
+    """
+    call the insert_dummy_content function
+    """
+    TinyDatabase().insert_dummy_content()
+
+
 def launch_db():
+#    if os.stat(full_path).st_size == 0:
+#    TinyDatabase().insert_dummy_content()
     tinydb_intro()
