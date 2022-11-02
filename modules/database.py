@@ -169,14 +169,5 @@ def tinydb_intro():
     get_input()
 
 
-def initiate_dummy_content():
-    """
-    call the insert_dummy_content function
-    """
-    TinyDatabase().insert_dummy_content()
-
-
 def launch_db():
-#    if os.stat(full_path).st_size == 0:
-#    TinyDatabase().insert_dummy_content()
     tinydb_intro()

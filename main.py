@@ -2,8 +2,8 @@
 """calls the required modules"""
 from pathlib import Path
 from modules.generator import start_generator
-from modules.database import launch_db, full_path, initiate_dummy_content
-from modules.handle_files import create_dir, decrypt_file, to_key
+from modules.database import launch_db, full_path
+from modules.handle_files import create_dir, decrypt_file, encrypt_file, to_key
 import os
 import subprocess
 import time
@@ -30,7 +30,6 @@ def handle_error():
 
 def select_module():
     """Prompts user to select the module they want to use"""
-    initiate_dummy_content()
     decrypt_file(db_path=full_path, key_path=to_key)
     print("""
 ****************************************
@@ -53,6 +52,7 @@ def select_module():
     elif user_prompt == "gen":
         clear_console()
         start_generator.start_join()
+        encrypt_file(db_path=full_path, key_path=to_key)
     elif user_prompt not in choices:
         handle_error()
 
