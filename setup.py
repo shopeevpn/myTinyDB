@@ -8,7 +8,7 @@ import subprocess
 from modules.handle_files import create_dir
 from modules.handle_files import generate_key
 
-packages = "pipenv"
+package = "pipenv"
 
 
 def prepare_env(package: str):
@@ -36,4 +36,4 @@ def prepare_env(package: str):
 
 if __name__ == "__main__":
 
-    prepare_env(packages)
+    prepare_env(package=package)
