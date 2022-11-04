@@ -8,21 +8,28 @@ import subprocess
 from modules.handle_files import create_dir
 from modules.handle_files import generate_key
 
-packages = ["tinydb==4.5.2", "pyperclip"]
+packages = "pipenv"
 
 
-def prepare_env(packages: list):
+def prepare_env(package: str):
     """
     sets up everything for the user
+    Args::
+        package(str): the pipenv package
     """
     create_dir()
     generate_key()
-    for package in packages:
-        subprocess.check_call(
-                ["pip", "install", package]
-                if os.name == "nt"
-                else ["pip3", "install", package]
+    subprocess.check_call(
+            ["pip", "install", package]
+            if os.name == "nt"
+            else ["pip3", "install", package]
             )
+
+    # installs the packages from the PipFile
+    subprocess.check_call(["pipenv install"])
+
+    # activates the virtual envirnonment
+    subprocess.check_call(["pipenv shell"])
     print("="*17)
     print("Everything is set")
 
