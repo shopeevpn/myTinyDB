@@ -6,7 +6,7 @@ import json
 import subprocess
 from tinydb import Query, TinyDB
 from modules.handle_files import (
-        encrypt_file, to_dir_path, to_key
+    encrypt_file, to_dir_path, to_key
 )
 
 
@@ -124,16 +124,20 @@ def add_content():
     add content in single(once)
     or multiple(several users information in order)
     """
-    select_input = input("Multpile or Single input(m/s)\n~# ")
-    if (select_input == "m"):
-        num_of_times = int(input("~# How many:\n"))
-        for _ in range(num_of_times):
+    try:
+        select_input = input("Multpile or Single input(m/s)\n~# ")
+        if (select_input == "m"):
+            num_of_times = int(input("~# How many:\n"))
+            for _ in range(num_of_times):
+                TinyDatabase().insert_content()
+                print()
+
+        else:
             TinyDatabase().insert_content()
             print()
-
-    else:
-        TinyDatabase().insert_content()
-        print()
+    except KeyboardInterrupt:
+        # encrypt the file on keyboard interrupt
+        encrypt_file(db_path=full_path, key_path=to_key)
 
 
 def get_input():
