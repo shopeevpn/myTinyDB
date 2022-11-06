@@ -2,6 +2,7 @@
 """
 script creates the directories required
 and installs required packages
+and sets-up a virtual environment
 """
 import os
 import subprocess
@@ -26,12 +27,11 @@ def prepare_env(package: str):
             )
 
     # installs the packages from the PipFile
-    subprocess.check_call(["pipenv install"])
-
+    subprocess.check_call(["pipenv", "install"])
+    
+    print("Setting up virtual environment")
     # activates the virtual envirnonment
-    subprocess.check_call(["pipenv shell"])
-    print("="*17)
-    print("Everything is set")
+    subprocess.check_call(["pipenv", "shell"])
 
 
 if __name__ == "__main__":
