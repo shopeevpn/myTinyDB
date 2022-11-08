@@ -25,6 +25,7 @@ def handle_error():
         print("\nSee you next time🙋")
         time.sleep(1)
         clear_console()
+        encrypt_file(db_path=full_path, key_path=to_key)
         SystemExit()
 
 
@@ -58,5 +59,12 @@ def select_module():
 
 
 if __name__ == '__main__':
+    """
+    run the select_module function
+    if KeyboardInterrupt ctrl+c is caught; encrypt the database
+    """
+    try:
+        select_module()
+    except KeyboardInterrupt:
+        encrypt_file(db_path=full_path, key_path=to_key)
 
-    select_module()
