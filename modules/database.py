@@ -90,7 +90,7 @@ class TinyDatabase():
     def show_all_content(self):
         """prints all the contents of the file to stdout"""
         TinyDatabase.pretty_print_json(
-            self.database.all()
+            normal_json=self.database.all()
         )
         encrypt_file(db_path=full_path, key_path=to_key)
 
