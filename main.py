@@ -19,6 +19,7 @@ def handle_error():
     print("\n🤷 Unknown input‼\nStart Over?(y/n)")
     restart = input("~# ")
     if restart == "y":
+        encrypt_file(db_path=full_path, key_path=to_key)
         clear_console()
         select_module()
     else:
@@ -67,4 +68,3 @@ if __name__ == '__main__':
         select_module()
     except KeyboardInterrupt:
         encrypt_file(db_path=full_path, key_path=to_key)
-
