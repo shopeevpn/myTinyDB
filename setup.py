@@ -29,11 +29,6 @@ def prepare_env(package: str):
     # installs the packages from the PipFile
     subprocess.check_call(["pipenv", "install"])
 
-    print("\n\nSetting up virtual environment")
-    # activates the virtual envirnonment
-    subprocess.check_call(["pipenv", "shell"])
-
-
 if __name__ == "__main__":
 
     prepare_env(package=package)
