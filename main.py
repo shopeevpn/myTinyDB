@@ -65,6 +65,7 @@ if __name__ == '__main__':
     if KeyboardInterrupt ctrl+c is caught; encrypt the database
     """
     try:
+        subprocess.check_call(["pipenv", "shell"])
         select_module()
     except KeyboardInterrupt:
         encrypt_file(db_path=full_path, key_path=to_key)
