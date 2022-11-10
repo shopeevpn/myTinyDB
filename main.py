@@ -3,7 +3,9 @@
 from pathlib import Path
 from modules.generator import start_generator
 from modules.database import launch_db, full_path
-from modules.handle_files import create_dir, decrypt_file, encrypt_file, to_key
+from modules.handle_files import (
+        create_dir, decrypt_file, encrypt_file, to_key
+        )
 import os
 import subprocess
 import time
@@ -65,7 +67,6 @@ if __name__ == '__main__':
     if KeyboardInterrupt ctrl+c is caught; encrypt the database
     """
     try:
-        subprocess.check_call(["pipenv", "shell"])
         select_module()
     except KeyboardInterrupt:
         encrypt_file(db_path=full_path, key_path=to_key)

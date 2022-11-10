@@ -4,15 +4,15 @@ script creates the directories required,
 installs required packages
 and sets-up a virtual environment
 """
-import os
+
 import subprocess
 from modules.handle_files import create_dir
 from modules.handle_files import generate_key
 
-package = "pipenv"
+packages = ["cryptography", "pyperclip", "tinydb==4.5.2"]
 
 
-def prepare_env(package: str):
+def prepare_env(packages: list):
     """
     sets up everything for the user
     Args::
@@ -20,15 +20,10 @@ def prepare_env(package: str):
     """
     create_dir()
     generate_key()
-    subprocess.check_call(
-        ["pip", "install", package]
-        if os.name == "nt"
-        else ["pip3", "install", package]
-    )
+    for package in packages:
+        subprocess.check_call(["pip3", "install", package])
 
-    # installs the packages from the PipFile
-    subprocess.check_call(["pipenv", "install"])
 
 if __name__ == "__main__":
 
-    prepare_env(package=package)
+    prepare_env(packages=packages)
