@@ -3,6 +3,7 @@
 import random
 import pyperclip
 
+#TODO:: find a better way to generate random passwords
 
 class PasswordGenerator():
     """
@@ -13,7 +14,7 @@ class PasswordGenerator():
         self.upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         self.lower = self.upper.lower()
         self.digits = "0123456789"
-        self.symbols = "*&%$#@!+~:-<|?/ >"
+        self.symbols = "*&%$#@!+~:-<|?/>"
         self.empty_string = "" + self.upper
 
     def start_join(self):
