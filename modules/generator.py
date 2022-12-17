@@ -1,40 +1,17 @@
 #!/usr/bin/python3
 """module generates random passwords"""
 import random
+import string
 import pyperclip
 
-#TODO:: find a better way to generate random passwords
 
-class PasswordGenerator():
+def generate_password():
     """
-    defines PasswordGenerator
+    generates random values and joins them
     """
-    def __init__(self) -> None:
-        """initialize the generator"""
-        self.upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-        self.lower = self.upper.lower()
-        self.digits = "0123456789"
-        self.symbols = "*&%$#@!+~:-<|?/>"
-        self.empty_string = "" + self.upper
-
-    def start_join(self):
-        """
-        generates random values and joins them
-        """
-
-        self.empty_string += self.digits
-        self.empty_string += self.lower
-        self.empty_string += self.symbols
-        self.password_length = 15
-
-        self.generated_password = "".join(random.sample(
-            self.empty_string, self.password_length
-            ))
-        print()
-        print("password copied to clipboard")
-        print("*"*28)
-        print()
-        pyperclip.copy(self.generated_password)
-
-
-start_generator = PasswordGenerator()
+    
+    str_source = string.ascii_letters+string.digits+string.punctuation
+    generated_string = "".join(random.sample(str_source, 15))
+    pyperclip.copy(generated_string)
+    print("password copied to clipboard")
+    print("*"*28)

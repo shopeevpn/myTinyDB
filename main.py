@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """calls the required modules"""
 from pathlib import Path
-from modules.generator import start_generator
+from modules.generator import generate_password
 from modules.database import launch_db, full_path
 from modules.handle_files import (
         create_dir, decrypt_file, encrypt_file, to_key
@@ -55,7 +55,7 @@ def select_module():
             create_dir()
     elif user_prompt == "gen":
         clear_console()
-        start_generator.start_join()
+        generate_password()
         encrypt_file(db_path=full_path, key_path=to_key)
     elif user_prompt not in choices:
         handle_error()
