@@ -12,12 +12,13 @@ import time
 
 
 def clear_console():
-    """clears the terminal"""
+    """clear the terminal"""
     subprocess.run("cls" if os.name == "nt" else "clear")
 
 
 def handle_error():
-    """clears console and prompts user again"""
+    """clear console and prompts user again"""
+
     print("\n🤷 Unknown input‼\nStart Over?(y/n)")
     restart = input("~# ")
     if restart == "y":
@@ -33,7 +34,7 @@ def handle_error():
 
 
 def select_module():
-    """Prompts user to select the module they want to use"""
+    """Prompt user to select the module they want to use"""
     decrypt_file(db_path=full_path, key_path=to_key)
     print("""
 ****************************************
