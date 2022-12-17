@@ -1,11 +1,9 @@
 """unittests"""
 
 import unittest
+from my_tinydb import TestGenerator
+#TODO:: find out how to fix can't find module error on import
 
-from .my_tinydb import generator
-
-#from my_tinydb.generator import generate_password
-#from .my_tinydb import generator
 
 class TestGenerator(unittest.TestCase):
     def test_error(self):
