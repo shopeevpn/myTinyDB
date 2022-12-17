@@ -5,7 +5,7 @@ import os
 import json
 import subprocess
 from tinydb import Query, TinyDB
-from modules.handle_files import (
+from my_tinydb.handle_files import (
     encrypt_file, to_dir_path, to_key
 )
 

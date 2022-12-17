@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """calls the required modules"""
 from pathlib import Path
-from modules.generator import generate_password
-from modules.database import launch_db, full_path
-from modules.handle_files import (
+from my_tinydb.generator import generate_password
+from my_tinydb.database import launch_db, full_path
+from my_tinydb.handle_files import (
         create_dir, decrypt_file, encrypt_file, to_key
         )
 import os
