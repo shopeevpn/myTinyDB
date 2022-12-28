@@ -1,4 +1,4 @@
-# MyTinyDB 🗃️
+# MyTinyDB 🗃️ 
 
 > **Simple password generator and database that uses the ***tinyDB*** module**
 
